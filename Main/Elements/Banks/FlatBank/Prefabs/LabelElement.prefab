@@ -111,7 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48d5b6e45d847868b3db02165eccb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectContent:
+    alignment: 0
+    padding: 10
+    size: {x: 0, y: 0}
   value: A label element
+  anchorTransform: {fileID: 2360843618259311671}
   labelText: {fileID: 2360843618259311668}
 --- !u!1 &2360843618259311672
 GameObject:
@@ -149,8 +154,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0.5}
+  m_SizeDelta: {x: -10, y: -10}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2360843618259311669
 CanvasRenderer:
   m_ObjectHideFlags: 0

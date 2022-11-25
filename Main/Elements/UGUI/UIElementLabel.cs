@@ -1,13 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace UIFlex.Elements
+namespace UIFlex.Elements.UGUI
 {
 	public sealed class UIElementLabel : UGUIElement<string>
 	{
 		[SerializeField] private TMP_Text labelText;
 
-		public override bool IsValid => labelText != null;
+		public override bool IsValid => base.IsValid && labelText != null;
 
 		protected override void OnDeactivate() => labelText.alpha = 0.5f;
 		protected override void OnActivate() => labelText.alpha = 1;

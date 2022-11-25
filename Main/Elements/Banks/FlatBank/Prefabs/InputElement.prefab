@@ -111,7 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740061f220b8406ebaa639d9f7fc13fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rectContent:
+    alignment: 0
+    padding: 10
+    size: {x: 0, y: 0}
   value: Hello
+  anchorTransform: {fileID: 3906934898880984556}
   inputField: {fileID: 3906934898880984559}
   fieldType: 0
 --- !u!1 &3906934898880984557
@@ -151,8 +156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -4}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: -10, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3906934898880984553
 CanvasRenderer:

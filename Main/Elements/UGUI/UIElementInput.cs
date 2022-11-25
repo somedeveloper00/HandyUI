@@ -2,7 +2,7 @@
 using UIFlex.Elements.Utils;
 using UnityEngine;
 
-namespace UIFlex.Elements
+namespace UIFlex.Elements.UGUI
 {
 	public sealed class UIElementInput : UGUIElement<string>
 	{
@@ -16,7 +16,7 @@ namespace UIFlex.Elements
 		public delegate string OnValidation(string input);
 		public event OnValidation OnCustomValidation;
 
-		public override bool IsValid => inputField != null;
+		public override bool IsValid => base.IsValid && inputField != null;
 
 		protected override void OnDeactivate() => inputField.interactable = false;
 		protected override void OnActivate() => inputField.interactable = true;
