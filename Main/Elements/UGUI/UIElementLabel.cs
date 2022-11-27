@@ -9,10 +9,10 @@ namespace UIFlex.Elements.UGUI
 
 		public override bool IsValid => base.IsValid && labelText != null;
 
-		protected override void OnDeactivate() => labelText.alpha = 0.5f;
-		protected override void OnActivate() => labelText.alpha = 1;
+		internal override void OnDeactivate() => labelText.alpha = 0.5f;
+		internal override void OnActivate() => labelText.alpha = 1;
 
-		protected override void OnValueSet()
+		internal override void OnValueSet()
 		{
 			labelText.text = value;
 		}

@@ -18,10 +18,10 @@ namespace UIFlex.Elements.UGUI
 
 		public override bool IsValid => base.IsValid && inputField != null;
 
-		protected override void OnDeactivate() => inputField.interactable = false;
-		protected override void OnActivate() => inputField.interactable = true;
+		internal override void OnDeactivate() => inputField.interactable = false;
+		internal override void OnActivate() => inputField.interactable = true;
 
-		protected override void OnValueSet()
+		internal override void OnValueSet()
 		{
 			switch (fieldType)
 			{

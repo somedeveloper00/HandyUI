@@ -6,13 +6,13 @@ namespace UIFlex.Elements.UGUI
 	/// <summary>
 	/// UGUI (Unity's Canvas system) element
 	/// </summary>
-	public abstract class UGUIElement<T> : Element<T>
+	public abstract class UGUIElement<T> : UIElement<T>
 	{
 		[SerializeField] private RectTransform anchorTransform;
 
 		public override bool IsValid => anchorTransform != null;
 
-		protected override void UpdateTransforms()
+		internal override void UpdateTransforms()
 		{
 			UGUIHelpers.SetRectTransformProps(anchorTransform, rectContent.alignment, rectContent.size, rectContent.padding);
 		}

@@ -11,10 +11,10 @@ namespace UIFlex.Elements.UGUI
 
 		public override bool IsValid => base.IsValid && button != null;
 
-		protected override void OnDeactivate() => button.interactable = false;
-		protected override void OnActivate() => button.interactable = true;
+		internal override void OnDeactivate() => button.interactable = false;
+		internal override void OnActivate() => button.interactable = true;
 
-		protected override void OnValueSet()
+		internal override void OnValueSet()
 		{
 			button.onClick.RemoveAllListeners();
 			button.onClick.AddListener(value.Invoke);

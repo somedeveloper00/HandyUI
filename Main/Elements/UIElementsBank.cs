@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UIFlex.Elements
 {
 	[CreateAssetMenu(menuName = "Elements Bank")]
-	public class ElementsBank : ScriptableObject
+	public class UIElementsBank : ScriptableObject
 	{
 		[SerializeField] private UIElementLabel uiElementLabel;
 		[SerializeField] private UIElementBool uiElementBool;

@@ -8,8 +8,7 @@ using UnityEditor;
 
 namespace UIFlex.Elements
 {
-	[ExecuteAlways]
-	public abstract class Element : MonoBehaviour, IValidityCheck
+	public abstract class UIElement : MonoBehaviour, IValidityCheck
 	{
 		[SerializeField] protected RectContent rectContent = new RectContent()
 		{
@@ -20,35 +19,8 @@ namespace UIFlex.Elements
 
 		public Action onValueChanged;
 
-		protected void OnValidate()
-		{
-			if (!IsValid) return; 
-#if UNITY_EDITOR // some properties aren't allowed to be modified from OnValidate phase
-			if (!Application.isPlaying)
-				EditorApplication.delayCall += () =>
-				{
-					if(IsValid) UpdateTransforms();
-				};
-			else
-#endif
-			UpdateTransforms();
-			OnValueSet();
-		}
-
 		public abstract bool IsValid { get; }
 		
-		private void OnEnable()
-		{
-			if (IsValid) OnActivate();
-		}
-
-		private void OnDisable()
-		{
-			if (IsValid) OnDeactivate();
-		}
-		
-		protected void Awake() => OnInit();
-
 		/// <summary>
 		/// Whether the element is responsive and active or not
 		/// </summary>
@@ -57,17 +29,17 @@ namespace UIFlex.Elements
 			get => this.enabled;
 			set => this.enabled = value;
 		}
-		
-		
-		protected abstract void UpdateTransforms();
-		protected abstract void OnDeactivate();
-		protected abstract void OnActivate();
-		protected abstract void OnValueSet();
 
-		protected virtual void OnInit() { }
+
+		internal abstract void UpdateTransforms();
+		internal abstract void OnDeactivate();
+		internal abstract void OnActivate();
+		internal abstract void OnValueSet();
+
+		internal virtual void OnInit() { }
 	}
 
-	public abstract class Element<T> : Element
+	public abstract class UIElement<T> : UIElement
 	{
 		[SerializeField] protected T value;
 
