@@ -1,10 +1,13 @@
 {
-    "name": "UIFlex",
+    "name": "HandyUIEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:9b7c73e8275292e43bdeaf4a2b6b8646",
+        "GUID:d9943c750f8a43a4a212ca6c43b087b0"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
