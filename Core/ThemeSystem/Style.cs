@@ -13,6 +13,7 @@ namespace HandyUI.ThemeSystem
 		
 		[SerializeField] private OverridableOption<Sprite> _sprite;
 		[SerializeField] private OverridableOption<Color> _color;
+		[SerializeField] private OverridableOption<float> _height;
 		[SerializeField] private OverridableOption<TMP_FontAsset> _font;
 		[SerializeField] private OverridableOption<float> _fontSize;
 		[SerializeField] private OverridableOption<FontStyles> _fontStyle;
@@ -30,6 +31,18 @@ namespace HandyUI.ThemeSystem
 					return parent.TryGetFont( out font );
 			}
 			font = null;
+			return false;
+		}
+		public bool TryGetHeight( out float height ) {
+			if ( valid ) {
+				if ( _height.enabled ) {
+					height = _height.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetHeight( out height );
+			}
+			height = 30;
 			return false;
 		}
 

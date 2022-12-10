@@ -13,7 +13,6 @@ namespace HandyUI.Editor
 	{
 		private ThemedElement instance;
 		private Theme _parentTheme;
-		private List<string> _options;
 
 		private void OnEnable() {
 			instance = target as ThemedElement;
@@ -25,6 +24,7 @@ namespace HandyUI.Editor
 			var styleNameProp = serializedObject.FindProperty( nameof(instance.styleName) );
 			var applySpriteProp = serializedObject.FindProperty( nameof(instance.applySprite) );
 			var applyColorProp = serializedObject.FindProperty( nameof(instance.applyColor) );
+			var applyHeightProp = serializedObject.FindProperty( nameof(instance.applyHeight) );
 			var applyFontSizeProp = serializedObject.FindProperty( nameof(instance.applyFontSize) );
 			var applyFontStyleProp = serializedObject.FindProperty( nameof(instance.applyFontStyle) );
 			var applyFontProp = serializedObject.FindProperty( nameof(instance.applyFont) );
@@ -51,8 +51,8 @@ namespace HandyUI.Editor
 
 			void drawBody() {
 				// style selection
-				if ( _parentTheme != null && _parentTheme.styles != null && 
-				     !_parentTheme.styles.Any( s => s.name == styleNameProp.stringValue ) ) {
+				if ( _parentTheme != null && _parentTheme.stylePack != null && _parentTheme.stylePack.styles != null &&
+				     _parentTheme.stylePack.styles.All( s => s.name != styleNameProp.stringValue ) ) {
 					EditorGUILayout.HelpBox(
 						$"Style \'{styleNameProp.stringValue}\' not found in parent theme game object {_parentTheme.name}",
 						MessageType.Warning );
@@ -69,16 +69,17 @@ namespace HandyUI.Editor
 				EditorGUILayout.PropertyField( applySpriteProp );
 				EditorGUILayout.PropertyField( applyColorProp );
 				EditorGUILayout.PropertyField( applyFontSizeProp );
+				EditorGUILayout.PropertyField( applyHeightProp );
 				EditorGUILayout.PropertyField( applyFontStyleProp );
 				EditorGUILayout.PropertyField( applyFontProp );
 				using (new GUILayout.HorizontalScope()) {
 					if ( GUILayout.Button( "select all", GUILayout.Width( 100 ) ) ) {
-						applySpriteProp.boolValue = applyColorProp.boolValue =
+						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =
 							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = true;
 					}
 
 					if ( GUILayout.Button( "deselect all", GUILayout.Width( 100 ) ) ) {
-						applySpriteProp.boolValue = applyColorProp.boolValue =
+						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =
 							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = false;
 					}
 				}
@@ -104,10 +105,6 @@ namespace HandyUI.Editor
 
 		private void updateOptions() {
 			_parentTheme = instance.gameObject.GetComponentInParent<Theme>();
-			_options ??= new();
-			_options.Clear();
-			if ( _parentTheme == null ) return;
-			foreach (var style in _parentTheme.styles) _options.Add( style.name );
 		}
 	}
 }

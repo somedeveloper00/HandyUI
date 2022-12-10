@@ -12,10 +12,11 @@ namespace HandyUI.Editor
 	{
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
 			var target = property.GetValue() as Style;
-			var theme = property.serializedObject.targetObject as Theme;
+			var stylePack = property.serializedObject.targetObject as StylePack;
 			var nameProp = property.FindPropertyRelative( nameof(Style.name) );
 			var parentNameProp = property.FindPropertyRelative( nameof(Style.parentName) );
-			var fontSizeNameProp = property.FindPropertyRelative( "_fontSize" );
+			var heightNameProp = property.FindPropertyRelative( "_height" );
+			var fontSizeProp = property.FindPropertyRelative( "_fontSize" );
 			var spriteProp = property.FindPropertyRelative( "_sprite" );
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
@@ -24,7 +25,7 @@ namespace HandyUI.Editor
 
 			var styles = new List<string>();
 			styles.Add( "None" );
-			styles.AddRange( theme.styles.Select( s => s.name ) );
+			if ( stylePack != null ) styles.AddRange( stylePack.styles.Select( s => s.name ) );
 			styles.Remove( nameProp.stringValue ); // remove self
 
 			int selected = styles.IndexOf( parentNameProp.stringValue, 1 );
@@ -63,8 +64,10 @@ namespace HandyUI.Editor
 				position.y += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, spriteProp );
 				position.y += EditorGUI.GetPropertyHeight( spriteProp ) + AFStyles.VerticalSpace;
-				EditorGUI.PropertyField( position, fontSizeNameProp );
-				position.y += EditorGUI.GetPropertyHeight( fontSizeNameProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, heightNameProp );
+				position.y += EditorGUI.GetPropertyHeight( heightNameProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, fontSizeProp );
+				position.y += EditorGUI.GetPropertyHeight( fontSizeProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, fontStyleProp );
 				position.y += EditorGUI.GetPropertyHeight( fontStyleProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, fontProp );
@@ -76,6 +79,7 @@ namespace HandyUI.Editor
 			var parentNameProp = property.FindPropertyRelative( nameof(Style.parentName) );
 			var fontSizeNameProp = property.FindPropertyRelative( "_fontSize" );
 			var spriteProp = property.FindPropertyRelative( "_sprite" );
+			var heightNameProp = property.FindPropertyRelative( "_height" );
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
 			var fontProp = property.FindPropertyRelative( "_font" );
@@ -93,6 +97,7 @@ namespace HandyUI.Editor
 				h += EditorGUI.GetPropertyHeight( spriteProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( fontProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( heightNameProp ) + AFStyles.VerticalSpace;
 			}
 			return h;
 		}
