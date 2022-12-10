@@ -23,7 +23,8 @@ namespace HandyUI.Editor
 				r.x += r.width ;
 				r.width = position.width - EditorGUIUtility.labelWidth ;
 				if ( enabledProp.boolValue ) {
-					EditorGUI.PropertyField( r, valueProp, GUIContent.none );
+					using (new AFStyles.EditorLabelWidth( 10 ))
+					EditorGUI.PropertyField( r, valueProp, new GUIContent(" ") );
 				}
 			}
 		}

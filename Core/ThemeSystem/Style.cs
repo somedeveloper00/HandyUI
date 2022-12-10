@@ -11,13 +11,27 @@ namespace HandyUI.ThemeSystem
 		public string parentName;
 		public string name;
 		
-		[SerializeField] private OverridableOption<float> _fontSize;
 		[SerializeField] private OverridableOption<Sprite> _sprite;
 		[SerializeField] private OverridableOption<Color> _color;
+		[SerializeField] private OverridableOption<TMP_FontAsset> _font;
+		[SerializeField] private OverridableOption<float> _fontSize;
 		[SerializeField] private OverridableOption<FontStyles> _fontStyle;
 		
 		[NonSerialized] private Style parent;
 		[NonSerialized] internal bool valid = false;
+
+		public bool TryGetFont( out TMP_FontAsset font ) {
+			if ( valid ) {
+				if ( _font.enabled ) {
+					font = _font.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetFont( out font );
+			}
+			font = null;
+			return false;
+		}
 
 		public bool TryGetFontSize( out float fontSize ) {
 			if ( valid ) {
@@ -72,6 +86,7 @@ namespace HandyUI.ThemeSystem
 		}
 		
 		public static void ResolveStyles(Style[] styles) {
+			if ( styles == null ) return;
 			// assign parents blindly & validating root styles
 			for (int i = 0; i < styles.Length; i++) {
 				// root style

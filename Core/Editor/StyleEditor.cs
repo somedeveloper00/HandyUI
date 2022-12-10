@@ -19,6 +19,7 @@ namespace HandyUI.Editor
 			var spriteProp = property.FindPropertyRelative( "_sprite" );
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
+			var fontProp = property.FindPropertyRelative( "_font" );
 
 
 			var styles = new List<string>();
@@ -65,6 +66,8 @@ namespace HandyUI.Editor
 				EditorGUI.PropertyField( position, fontSizeNameProp );
 				position.y += EditorGUI.GetPropertyHeight( fontSizeNameProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, fontStyleProp );
+				position.y += EditorGUI.GetPropertyHeight( fontStyleProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, fontProp );
 			}
 		}
 
@@ -75,6 +78,7 @@ namespace HandyUI.Editor
 			var spriteProp = property.FindPropertyRelative( "_sprite" );
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
+			var fontProp = property.FindPropertyRelative( "_font" );
 
 			var target = property.GetValue() as Style;
 			var h = 0f;
@@ -88,6 +92,7 @@ namespace HandyUI.Editor
 				h += EditorGUI.GetPropertyHeight( fontStyleProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( spriteProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( fontProp ) + AFStyles.VerticalSpace;
 			}
 			return h;
 		}

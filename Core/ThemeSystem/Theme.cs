@@ -9,6 +9,7 @@ namespace HandyUI.ThemeSystem
 		private ThemedElement[] _elements;
 
 		private void OnValidate() {
+			foreach (var style in styles) style.name = style.name.ToLower();
 			Style.ResolveStyles(styles);
 			_elements = GetComponentsInChildren<ThemedElement>();
 			UpdateTheme();
@@ -25,8 +26,6 @@ namespace HandyUI.ThemeSystem
 					element.UpdateTheme( styles[i] );
 					return;
 				}
-
-				Debug.LogWarning( $"style not recognized: {element.styleName}" );
 			}
 		}
 	}
