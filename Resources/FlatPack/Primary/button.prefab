@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  styleName: button
+  styleName: background-2
   applySprite: 0
   applyColor: 0
   applyHeight: 1
