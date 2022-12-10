@@ -21,6 +21,10 @@ namespace HandyUI.Editor
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
 			var fontProp = property.FindPropertyRelative( "_font" );
+			var inEaseProp = property.FindPropertyRelative( "_inEase" );
+			var outEaseProp = property.FindPropertyRelative( "_outEase" );
+			var inDurationProp = property.FindPropertyRelative( "_inDuration" );
+			var outDurationProp = property.FindPropertyRelative( "_outDuration" );
 
 
 			var styles = new List<string>();
@@ -70,6 +74,15 @@ namespace HandyUI.Editor
 				position.y += EditorGUI.GetPropertyHeight( fontSizeProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, fontStyleProp );
 				position.y += EditorGUI.GetPropertyHeight( fontStyleProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, inEaseProp );
+				position.y += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, outEaseProp );
+				position.y += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, inDurationProp );
+				position.y += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, outDurationProp );
+				position.y += EditorGUI.GetPropertyHeight( outDurationProp ) + AFStyles.VerticalSpace;
+
 				EditorGUI.PropertyField( position, fontProp );
 			}
 		}
@@ -83,7 +96,11 @@ namespace HandyUI.Editor
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
 			var fontProp = property.FindPropertyRelative( "_font" );
-
+			var inEaseProp = property.FindPropertyRelative( "_inEase" );
+			var outEaseProp = property.FindPropertyRelative( "_outEase" );
+			var inDurationProp = property.FindPropertyRelative( "_inDuration" );
+			var outDurationProp = property.FindPropertyRelative( "_outDuration" );
+			
 			var target = property.GetValue() as Style;
 			var h = 0f;
 			if ( !target.valid )
@@ -98,6 +115,10 @@ namespace HandyUI.Editor
 				h += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( fontProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( heightNameProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( outDurationProp ) + AFStyles.VerticalSpace;
 			}
 			return h;
 		}

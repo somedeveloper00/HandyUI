@@ -28,6 +28,10 @@ namespace HandyUI.Editor
 			var applyFontSizeProp = serializedObject.FindProperty( nameof(instance.applyFontSize) );
 			var applyFontStyleProp = serializedObject.FindProperty( nameof(instance.applyFontStyle) );
 			var applyFontProp = serializedObject.FindProperty( nameof(instance.applyFont) );
+			var applyInEaseProp = serializedObject.FindProperty( nameof(instance.applyInEase) );
+			var applyOutEaseProp = serializedObject.FindProperty( nameof(instance.applyOutEase) );
+			var applyInDurationProp = serializedObject.FindProperty( nameof(instance.applyInDuration) );
+			var applyOutDurationProp = serializedObject.FindProperty( nameof(instance.applyOutDuration) );
 
 			using (var check = new EditorGUI.ChangeCheckScope()) {
 				using (new AFStyles.StyledGuiScope( this )) {
@@ -37,6 +41,7 @@ namespace HandyUI.Editor
 					else {
 						drawParentField();
 					}
+
 					drawBody();
 					drawOverrideButtons();
 				}
@@ -59,7 +64,8 @@ namespace HandyUI.Editor
 				}
 
 				using (var check = new EditorGUI.ChangeCheckScope()) {
-					EditorGUILayout.PropertyField( styleNameProp, new GUIContent( "Style name", styleNameProp.tooltip ) );
+					EditorGUILayout.PropertyField( styleNameProp,
+						new GUIContent( "Style name", styleNameProp.tooltip ) );
 					if ( check.changed )
 						styleNameProp.stringValue = styleNameProp.stringValue.ToLower();
 				}
@@ -72,15 +78,23 @@ namespace HandyUI.Editor
 				EditorGUILayout.PropertyField( applyHeightProp );
 				EditorGUILayout.PropertyField( applyFontStyleProp );
 				EditorGUILayout.PropertyField( applyFontProp );
+				EditorGUILayout.PropertyField( applyInEaseProp );
+				EditorGUILayout.PropertyField( applyOutEaseProp );
+				EditorGUILayout.PropertyField( applyInDurationProp );
+				EditorGUILayout.PropertyField( applyOutDurationProp );
 				using (new GUILayout.HorizontalScope()) {
 					if ( GUILayout.Button( "select all", GUILayout.Width( 100 ) ) ) {
 						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =
-							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = true;
+							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = applyInEaseProp.boolValue =
+								applyOutEaseProp.boolValue = applyInDurationProp.boolValue =
+									applyOutDurationProp.boolValue = applyFontProp.boolValue = true;
 					}
 
 					if ( GUILayout.Button( "deselect all", GUILayout.Width( 100 ) ) ) {
 						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =
-							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = false;
+							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = applyInEaseProp.boolValue =
+								applyOutEaseProp.boolValue = applyInDurationProp.boolValue =
+									applyOutDurationProp.boolValue = applyFontProp.boolValue = false;
 					}
 				}
 			}

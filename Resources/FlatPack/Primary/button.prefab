@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3442501133701243087}
   - component: {fileID: 5633920852004079948}
   - component: {fileID: 6504019359327771322}
+  - component: {fileID: 6287235469613398247}
   m_Layer: 5
   m_Name: background
   m_TagString: Untagged
@@ -75,6 +76,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 10
+--- !u!114 &6287235469613398247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607813308305127037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  styleName: background-2
+  applySprite: 1
+  applyColor: 1
+  applyHeight: 1
+  applyFont: 1
+  applyFontSize: 1
+  applyFontStyle: 1
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenerIn: {fileID: 0}
+  _tweenerOut: {fileID: 0}
 --- !u!1 &8734278375696629346
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,9 +251,16 @@ MonoBehaviour:
   styleName: normal
   applySprite: 1
   applyColor: 1
+  applyHeight: 1
   applyFont: 1
   applyFontSize: 1
   applyFontStyle: 1
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenerIn: {fileID: 0}
+  _tweenerOut: {fileID: 0}
 --- !u!1 &8734278376205901513
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +273,7 @@ GameObject:
   - component: {fileID: 8734278376205901516}
   - component: {fileID: 8734278376205901514}
   - component: {fileID: 8734278376205901515}
-  - component: {fileID: 4391500679564292974}
+  - component: {fileID: 409063312255379795}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -318,7 +351,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 5981972175743059145}
+  m_TargetGraphic: {fileID: 6504019359327771322}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -342,7 +375,7 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &4391500679564292974
+--- !u!114 &409063312255379795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,12 +387,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  styleName: normal
-  applySprite: 1
-  applyColor: 1
-  applyFont: 1
-  applyFontSize: 1
-  applyFontStyle: 1
+  styleName: button
+  applySprite: 0
+  applyColor: 0
+  applyHeight: 1
+  applyFont: 0
+  applyFontSize: 0
+  applyFontStyle: 0
+  applyInEase: 0
+  applyOutEase: 0
+  applyInDuration: 0
+  applyOutDuration: 0
+  _tweenerIn: {fileID: 0}
+  _tweenerOut: {fileID: 0}
 --- !u!1 &8767315588612093798
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +411,7 @@ GameObject:
   - component: {fileID: 6227499940036588587}
   - component: {fileID: 7002241064445134820}
   - component: {fileID: 5981972175743059145}
+  - component: {fileID: 6309179372574328818}
   m_Layer: 5
   m_Name: outline
   m_TagString: Untagged
@@ -435,3 +476,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 10
+--- !u!114 &6309179372574328818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8767315588612093798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  styleName: outline
+  applySprite: 1
+  applyColor: 1
+  applyHeight: 1
+  applyFont: 1
+  applyFontSize: 1
+  applyFontStyle: 1
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenerIn: {fileID: 0}
+  _tweenerOut: {fileID: 0}

@@ -4,10 +4,13 @@ using UnityEngine;
 namespace HandyUI.ThemeSystem
 {
 	/// <summary>Marks every <see cref="ThemedElement"/> child with it's own theme</summary>
+	[ExecuteAlways]
 	public sealed class Theme : MonoBehaviour
 	{
 		public StylePack stylePack;
 		private ThemedElement[] _elements = Array.Empty<ThemedElement>();
+
+		private void OnEnable() => UpdateTheme();
 
 		private void OnValidate() => UpdateTheme();
 

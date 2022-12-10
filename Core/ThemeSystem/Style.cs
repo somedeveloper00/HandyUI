@@ -1,4 +1,5 @@
 ﻿using System;
+using AnimFlex.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +18,10 @@ namespace HandyUI.ThemeSystem
 		[SerializeField] private OverridableOption<TMP_FontAsset> _font;
 		[SerializeField] private OverridableOption<float> _fontSize;
 		[SerializeField] private OverridableOption<FontStyles> _fontStyle;
+		[SerializeField] private OverridableOption<Ease> _inEase;
+		[SerializeField] private OverridableOption<float> _inDuration;
+		[SerializeField] private OverridableOption<Ease> _outEase;
+		[SerializeField] private OverridableOption<float> _outDuration;
 		
 		[NonSerialized] private Style parent;
 		[NonSerialized] internal bool valid = false;
@@ -33,6 +38,56 @@ namespace HandyUI.ThemeSystem
 			font = null;
 			return false;
 		}
+		
+		public bool TryGetInEase( out Ease ease ) {
+			if ( valid ) {
+				if ( _inEase.enabled ) {
+					ease = _inEase.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetInEase( out ease );
+			}
+			ease = Ease.Linear;
+			return false;
+		}
+		public bool TryGetOutEase( out Ease ease ) {
+			if ( valid ) {
+				if ( _outEase.enabled ) {
+					ease = _outEase.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetOutEase( out ease );
+			}
+			ease = Ease.Linear;
+			return false;
+		}
+		public bool TryGetInDuration( out float duration ) {
+			if ( valid ) {
+				if ( _inEase.enabled ) {
+					duration = _inDuration.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetInDuration( out duration );
+			}
+			duration = 1;
+			return false;
+		}
+		public bool TryGetOutDuration( out float duration ) {
+			if ( valid ) {
+				if ( _outEase.enabled ) {
+					duration = _outDuration.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetOutDuration( out duration );
+			}
+			duration = 1;
+			return false;
+		}
+		
 		public bool TryGetHeight( out float height ) {
 			if ( valid ) {
 				if ( _height.enabled ) {

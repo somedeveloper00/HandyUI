@@ -23,14 +23,26 @@ MonoBehaviour:
       value: {r: 1, g: 1, b: 1, a: 1}
     _height:
       enabled: 1
-      value: 0
+      value: 30
     _font:
       enabled: 0
       value: {fileID: 0}
     _fontSize:
       enabled: 1
-      value: 22
+      value: 20
     _fontStyle:
+      enabled: 0
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
       enabled: 0
       value: 0
   - parentName: main
@@ -40,7 +52,7 @@ MonoBehaviour:
       value: {fileID: 0}
     _color:
       enabled: 1
-      value: {r: 0.22700001, g: 0.22700001, b: 0.22700001, a: 1}
+      value: {r: 0.27, g: 0.27, b: 0.27, a: 1}
     _height:
       enabled: 0
       value: 0
@@ -52,6 +64,18 @@ MonoBehaviour:
       value: 20
     _fontStyle:
       enabled: 1
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
       value: 0
   - parentName: main
     name: background
@@ -60,7 +84,7 @@ MonoBehaviour:
       value: {fileID: 0}
     _color:
       enabled: 1
-      value: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
+      value: {r: 0.916, g: 0.916, b: 0.916, a: 1}
     _height:
       enabled: 0
       value: 0
@@ -71,6 +95,50 @@ MonoBehaviour:
       enabled: 0
       value: 20
     _fontStyle:
+      enabled: 0
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: background-2
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.965, g: 0.965, b: 0.965, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 0
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
       enabled: 0
       value: 0
   - parentName: normal
@@ -93,6 +161,18 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
   - parentName: normal
     name: field
     _sprite:
@@ -100,7 +180,7 @@ MonoBehaviour:
       value: {fileID: 0}
     _color:
       enabled: 0
-      value: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+      value: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
     _height:
       enabled: 0
       value: 0
@@ -113,6 +193,18 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
   - parentName: normal
     name: placeholder
     _sprite:
@@ -133,3 +225,15 @@ MonoBehaviour:
     _fontStyle:
       enabled: 1
       value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0

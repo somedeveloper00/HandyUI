@@ -2,7 +2,8 @@
     "name": "HandyUI",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:1f5c56dc4d564bfb9dbc4f2822296c3b"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

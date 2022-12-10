@@ -17,7 +17,7 @@ namespace HandyUI.Editor
 			
 			using (new EditorGUI.PropertyScope( position, label, property )) {
 				r.width = EditorGUIUtility.labelWidth;
-				using (new AFStyles.EditorLabelWidth( 70 ))
+				using (new AFStyles.EditorLabelWidth( 80 ))
 					EditorGUI.PropertyField( r, enabledProp, label );
 				
 				r.x += r.width ;
