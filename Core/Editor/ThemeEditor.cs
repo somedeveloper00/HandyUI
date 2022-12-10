@@ -15,6 +15,7 @@ namespace HandyUI.Editor
 
 		void OnEnable() {
 			instance = target as Theme;
+			instance.UpdateTheme();
 		}
 
 		public override void OnInspectorGUI() {

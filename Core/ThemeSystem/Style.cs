@@ -65,7 +65,7 @@ namespace HandyUI.ThemeSystem
 		}
 		public bool TryGetInDuration( out float duration ) {
 			if ( valid ) {
-				if ( _inEase.enabled ) {
+				if ( _inDuration.enabled ) {
 					duration = _inDuration.value;
 					return true;
 				}
@@ -77,7 +77,7 @@ namespace HandyUI.ThemeSystem
 		}
 		public bool TryGetOutDuration( out float duration ) {
 			if ( valid ) {
-				if ( _outEase.enabled ) {
+				if ( _outDuration.enabled ) {
 					duration = _outDuration.value;
 					return true;
 				}

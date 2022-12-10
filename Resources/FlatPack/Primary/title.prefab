@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3232999187811063289}
   - component: {fileID: 2939909017932933654}
   - component: {fileID: 7110769343968462218}
+  - component: {fileID: 3836354082250452094}
+  - component: {fileID: 7140435192821627245}
   m_Layer: 5
   m_Name: title
   m_TagString: Untagged
@@ -76,8 +78,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282729797
+  m_fontColor: {r: 0.27, g: 0.27, b: 0.27, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -151,9 +153,18 @@ MonoBehaviour:
   styleName: normal
   applySprite: 1
   applyColor: 1
+  applyHeight: 1
   applyFont: 1
   applyFontSize: 1
   applyFontStyle: 1
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenersIn:
+  - {fileID: 3836354082250452094}
+  _tweenersOut:
+  - {fileID: 7140435192821627245}
 --- !u!114 &7110769343968462218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +185,93 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3836354082250452094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232999187811063291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0a55c8630342b7b9c1a8b32b753ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 1
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 3232999187811063289}
+    target: 0
+  playOnStart: 0
+--- !u!114 &7140435192821627245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232999187811063291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0a55c8630342b7b9c1a8b32b753ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 0
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 3232999187811063289}
+    target: 0
+  playOnStart: 0

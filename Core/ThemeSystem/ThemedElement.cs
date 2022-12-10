@@ -1,4 +1,5 @@
-﻿using AnimFlex.Tweening;
+﻿using System;
+using AnimFlex.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,8 +24,23 @@ namespace HandyUI.ThemeSystem
 		private Image _image;
 		private TMP_Text _text;
 		private LayoutElement _layoutElement;
-		[SerializeField] private TweenerComponent _tweenerIn;
-		[SerializeField] private TweenerComponent _tweenerOut;
+		[SerializeField] internal TweenerComponent[] _tweenersIn;
+		[SerializeField] internal TweenerComponent[] _tweenersOut;
+
+		public void PlayInAnim() {
+			foreach (var tweener in _tweenersIn) tweener.PlayOrRestart();
+		}
+		public void PlayOutAnim(out Tweener lastTweener, out float duration) {
+			duration = 0;
+			lastTweener = null;
+			foreach (var tweener in _tweenersOut) {
+				var t = tweener.PlayOrRestart();
+				if ( tweener.duration > duration ) {
+					duration = tweener.duration;
+					lastTweener = t;
+				}
+			}
+		}
 
 		private void OnValidate() {
 			_image = GetComponent<Image>();
@@ -33,14 +49,18 @@ namespace HandyUI.ThemeSystem
 		}
 
 		internal void UpdateTheme(Style style) {
-			if ( _tweenerIn != null ) {
-				if ( applyInEase && style.TryGetInEase( out var ease ) ) _tweenerIn.ease = ease;
-				if ( applyInEase && style.TryGetInDuration( out var duration ) ) _tweenerIn.duration = duration;
+			if ( _tweenersIn != null ) {
+				if ( applyInEase && style.TryGetInEase( out var ease ) )
+					foreach (var tweener in _tweenersIn) tweener.ease = ease;
+				if ( applyInEase && style.TryGetInDuration( out var duration ) )
+					foreach (var tweener in _tweenersIn) tweener.duration = duration;
 			}
 
-			if ( _tweenerOut != null ) {
-				if ( applyOutEase && style.TryGetOutEase( out var ease ) ) _tweenerOut.ease = ease;
-				if ( applyOutEase && style.TryGetOutDuration( out var duration ) ) _tweenerOut.duration = duration;
+			if ( _tweenersOut != null ) {
+				if ( applyOutEase && style.TryGetOutEase( out var ease ) ) 
+					foreach (var tweener in _tweenersOut) tweener.ease = ease;
+				if ( applyOutEase && style.TryGetOutDuration( out var duration ) ) 
+					foreach (var tweener in _tweenersOut) tweener.duration = duration;
 			}
 
 			if ( _layoutElement != null ) {

@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 7049786263238178968}
   - component: {fileID: 4296240003477529897}
   - component: {fileID: 7582957586998050302}
+  - component: {fileID: 8605745973977670673}
+  - component: {fileID: 3884503012212935235}
+  - component: {fileID: 8878627554162717559}
+  - component: {fileID: 8332220620188144701}
   m_Layer: 5
   m_Name: toggle
   m_TagString: Untagged
@@ -148,6 +152,135 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &8605745973977670673
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049786263238178974}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &3884503012212935235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049786263238178974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  styleName: normal
+  applySprite: 0
+  applyColor: 0
+  applyHeight: 0
+  applyFont: 0
+  applyFontSize: 0
+  applyFontStyle: 0
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenersIn:
+  - {fileID: 8878627554162717559}
+  _tweenersOut:
+  - {fileID: 8332220620188144701}
+--- !u!114 &8878627554162717559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049786263238178974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281d55c472b4e96904317ae93b208cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 1
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 8605745973977670673}
+    target: 0
+  playOnStart: 0
+--- !u!114 &8332220620188144701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049786263238178974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281d55c472b4e96904317ae93b208cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 0
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 8605745973977670673}
+    target: 0
+  playOnStart: 0
 --- !u!1 &7049786263775178432
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +293,7 @@ GameObject:
   - component: {fileID: 7049786263775178445}
   - component: {fileID: 7049786263775178434}
   - component: {fileID: 3691757992267300214}
+  - component: {fileID: 6975673529468197703}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -207,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  m_Color: {r: 0.27, g: 0.27, b: 0.27, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -215,15 +349,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ddc48e4b23fe5164dbbadef7a8ebed4a, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.3
 --- !u!114 &3691757992267300214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,8 +381,54 @@ MonoBehaviour:
   applyOutEase: 1
   applyInDuration: 1
   applyOutDuration: 1
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  _tweenersIn:
+  - {fileID: 6975673529468197703}
+  _tweenersOut: []
+--- !u!114 &6975673529468197703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049786263775178432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c17596cce3d4572ad35b78f95b8a9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 1
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 7049786263775178434}
+    target: 0
+  playOnStart: 0
 --- !u!1 &7049786263811206232
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -348,8 +528,8 @@ MonoBehaviour:
   applyOutEase: 1
   applyInDuration: 1
   applyOutDuration: 1
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  _tweenersIn: []
+  _tweenersOut: []
 --- !u!1 &8509963782939375897
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -449,5 +629,5 @@ MonoBehaviour:
   applyOutEase: 1
   applyInDuration: 1
   applyOutDuration: 1
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  _tweenersIn: []
+  _tweenersOut: []

@@ -37,14 +37,14 @@ MonoBehaviour:
       enabled: 0
       value: 0
     _inDuration:
-      enabled: 0
-      value: 0
+      enabled: 1
+      value: 0.5
     _outEase:
       enabled: 0
       value: 0
     _outDuration:
-      enabled: 0
-      value: 0
+      enabled: 1
+      value: 0.25
   - parentName: main
     name: normal
     _sprite:

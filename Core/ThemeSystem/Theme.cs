@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using AnimFlex.Tweening;
 using UnityEngine;
 
 namespace HandyUI.ThemeSystem
@@ -10,13 +12,39 @@ namespace HandyUI.ThemeSystem
 		public StylePack stylePack;
 		private ThemedElement[] _elements = Array.Empty<ThemedElement>();
 
-		private void OnEnable() => UpdateTheme();
+		private Action _onDestroy;
+
+		private void OnEnable() {
+			UpdateTheme();
+#if UNITY_EDITOR
+			if (!Application.isPlaying) return;
+#endif
+			foreach (var element in _elements) element.PlayInAnim();
+		}
+
+		public void DestroyWithAnim() => DestroyWithAnim( null ); 
+		public void DestroyWithAnim(Action onDestroy) {
+			float maxDuration = 0;
+			Tweener lastTweener = null;
+			foreach (var element in _elements) {
+				element.PlayOutAnim(out Tweener tweener, out float d);
+				if ( d > maxDuration ) {
+					maxDuration = d;
+					lastTweener = tweener;
+				}
+			}
+
+			_onDestroy = onDestroy;
+			lastTweener.onComplete += () => Destroy( gameObject );
+		}
+
+		private void OnDestroy() => _onDestroy?.Invoke();
 
 		private void OnValidate() => UpdateTheme();
 
 		/// <summary>Updates the theme of all child elements</summary>
 		public void UpdateTheme(bool refreshElements = true) {
-			if (refreshElements)
+			if ( refreshElements )
 				_elements = GetComponentsInChildren<ThemedElement>();
 			foreach (var element in _elements) {
 				UpdateStyle( element );

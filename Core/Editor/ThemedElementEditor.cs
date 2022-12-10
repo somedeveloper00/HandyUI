@@ -32,6 +32,10 @@ namespace HandyUI.Editor
 			var applyOutEaseProp = serializedObject.FindProperty( nameof(instance.applyOutEase) );
 			var applyInDurationProp = serializedObject.FindProperty( nameof(instance.applyInDuration) );
 			var applyOutDurationProp = serializedObject.FindProperty( nameof(instance.applyOutDuration) );
+			
+			var TweenersInProp = serializedObject.FindProperty( nameof(instance._tweenersIn) );
+			var TweenersOutProp = serializedObject.FindProperty( nameof(instance._tweenersOut) );
+			
 
 			using (var check = new EditorGUI.ChangeCheckScope()) {
 				using (new AFStyles.StyledGuiScope( this )) {
@@ -79,9 +83,21 @@ namespace HandyUI.Editor
 				EditorGUILayout.PropertyField( applyFontStyleProp );
 				EditorGUILayout.PropertyField( applyFontProp );
 				EditorGUILayout.PropertyField( applyInEaseProp );
-				EditorGUILayout.PropertyField( applyOutEaseProp );
 				EditorGUILayout.PropertyField( applyInDurationProp );
+				if ( applyInEaseProp.boolValue || applyInDurationProp.boolValue ) {
+					EditorGUI.indentLevel++;
+					EditorGUILayout.PropertyField( TweenersInProp );
+					EditorGUI.indentLevel--;
+				}
+				EditorGUILayout.PropertyField( applyOutEaseProp );
 				EditorGUILayout.PropertyField( applyOutDurationProp );
+				if ( applyOutEaseProp.boolValue || applyOutDurationProp.boolValue ) {
+					EditorGUI.indentLevel++;
+					EditorGUILayout.PropertyField( TweenersOutProp );
+					EditorGUI.indentLevel--;
+				}
+				
+				
 				using (new GUILayout.HorizontalScope()) {
 					if ( GUILayout.Button( "select all", GUILayout.Width( 100 ) ) ) {
 						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =

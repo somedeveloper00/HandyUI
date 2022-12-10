@@ -99,8 +99,8 @@ MonoBehaviour:
   applyOutEase: 1
   applyInDuration: 1
   applyOutDuration: 1
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  _tweenersIn: []
+  _tweenersOut: []
 --- !u!1 &8734278375696629346
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,8 +259,8 @@ MonoBehaviour:
   applyOutEase: 1
   applyInDuration: 1
   applyOutDuration: 1
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  _tweenersIn: []
+  _tweenersOut: []
 --- !u!1 &8734278376205901513
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +274,9 @@ GameObject:
   - component: {fileID: 8734278376205901514}
   - component: {fileID: 8734278376205901515}
   - component: {fileID: 409063312255379795}
+  - component: {fileID: 5620341287724387768}
+  - component: {fileID: 8497818210235063390}
+  - component: {fileID: 5863913091142749045}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -394,12 +397,116 @@ MonoBehaviour:
   applyFont: 0
   applyFontSize: 0
   applyFontStyle: 0
-  applyInEase: 0
-  applyOutEase: 0
-  applyInDuration: 0
-  applyOutDuration: 0
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenersIn:
+  - {fileID: 8497818210235063390}
+  _tweenersOut:
+  - {fileID: 5863913091142749045}
+--- !u!225 &5620341287724387768
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734278376205901513}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8497818210235063390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734278376205901513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281d55c472b4e96904317ae93b208cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 1
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 5620341287724387768}
+    target: 0
+  playOnStart: 0
+--- !u!114 &5863913091142749045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734278376205901513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3281d55c472b4e96904317ae93b208cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator:
+    customCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    useCurve: 0
+    useQuaternion: 0
+    relative: 0
+    useTargetTransform: 0
+    from: 0
+    ease: 8
+    duration: 1
+    delay: 0
+    pingPong: 0
+    loops: 0
+    loopDelay: 0
+    onStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+    onKill:
+      m_PersistentCalls:
+        m_Calls: []
+    fromObject: {fileID: 5620341287724387768}
+    target: 0
+  playOnStart: 0
 --- !u!1 &8767315588612093798
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,5 +606,5 @@ MonoBehaviour:
   applyOutEase: 1
   applyInDuration: 1
   applyOutDuration: 1
-  _tweenerIn: {fileID: 0}
-  _tweenerOut: {fileID: 0}
+  _tweenersIn: []
+  _tweenersOut: []
