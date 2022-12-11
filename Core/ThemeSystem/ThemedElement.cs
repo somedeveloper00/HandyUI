@@ -2,11 +2,13 @@
 using AnimFlex.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.UI;
 
 namespace HandyUI.ThemeSystem
 {
 	/// <summary>Marks the gameObject as a specific element for theme system</summary>
+	[DisallowMultipleComponent]
 	internal sealed class ThemedElement : MonoBehaviour
 	{
 		public string styleName;
@@ -43,9 +45,14 @@ namespace HandyUI.ThemeSystem
 		}
 
 		private void OnValidate() {
+			Profiler.BeginSample( "ThemedElement OnValidate" );
 			_image = GetComponent<Image>();
 			_text = GetComponent<TMP_Text>();
 			_layoutElement = GetComponent<LayoutElement>();
+			var theme = gameObject.GetComponentInParent<Theme>();
+			if ( theme != null )
+				theme.UpdateTheme();
+			Profiler.EndSample();
 		}
 
 		internal void UpdateTheme(Style style) {
@@ -53,14 +60,18 @@ namespace HandyUI.ThemeSystem
 				if ( applyInEase && style.TryGetInEase( out var ease ) )
 					foreach (var tweener in _tweenersIn) tweener.ease = ease;
 				if ( applyInEase && style.TryGetInDuration( out var duration ) )
-					foreach (var tweener in _tweenersIn) tweener.duration = duration;
+					foreach (var tweener in _tweenersIn) { // error without the extra null-check :(
+						if (tweener != null) tweener.duration = duration;
+					}
 			}
 
 			if ( _tweenersOut != null ) {
 				if ( applyOutEase && style.TryGetOutEase( out var ease ) ) 
 					foreach (var tweener in _tweenersOut) tweener.ease = ease;
-				if ( applyOutEase && style.TryGetOutDuration( out var duration ) ) 
-					foreach (var tweener in _tweenersOut) tweener.duration = duration;
+				if ( applyOutEase && style.TryGetOutDuration( out var duration ) )
+					foreach (var tweener in _tweenersOut) {
+						if (tweener != null) tweener.duration = duration;
+					}
 			}
 
 			if ( _layoutElement != null ) {

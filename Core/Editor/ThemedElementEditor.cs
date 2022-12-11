@@ -59,19 +59,17 @@ namespace HandyUI.Editor
 
 
 			void drawBody() {
-				// style selection
-				if ( _parentTheme != null && _parentTheme.stylePack != null && _parentTheme.stylePack.styles != null &&
-				     _parentTheme.stylePack.styles.All( s => s.name != styleNameProp.stringValue ) ) {
-					EditorGUILayout.HelpBox(
-						$"Style \'{styleNameProp.stringValue}\' not found in parent theme game object {_parentTheme.name}",
-						MessageType.Warning );
-				}
-
 				using (var check = new EditorGUI.ChangeCheckScope()) {
 					EditorGUILayout.PropertyField( styleNameProp,
 						new GUIContent( "Style name", styleNameProp.tooltip ) );
 					if ( check.changed )
 						styleNameProp.stringValue = styleNameProp.stringValue.ToLower();
+				}
+				if ( _parentTheme != null && _parentTheme.stylePack != null && _parentTheme.stylePack.styles != null &&
+				     _parentTheme.stylePack.styles.All( s => s.name != styleNameProp.stringValue ) ) {
+					EditorGUILayout.HelpBox(
+						$"Style \'{styleNameProp.stringValue}\' not found in parent theme game object {_parentTheme.name}",
+						MessageType.Warning );
 				}
 			}
 

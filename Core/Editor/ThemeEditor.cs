@@ -3,6 +3,7 @@ using AnimFlex.Editor;
 using HandyUI.ThemeSystem;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace HandyUI.Editor
 {
@@ -19,6 +20,7 @@ namespace HandyUI.Editor
 		}
 
 		public override void OnInspectorGUI() {
+			Profiler.BeginSample( "Theme Editor" );
 			serializedObject.Update();
 			var stylePackProp = serializedObject.FindProperty( nameof(instance.stylePack) );
 
@@ -47,10 +49,13 @@ namespace HandyUI.Editor
 				}
 
 				if ( check.changed ) {
+					Profiler.BeginSample( "change" );
 					serializedObject.ApplyModifiedProperties();
 					instance.UpdateTheme();
+					Profiler.EndSample();
 				}
 			}
+			Profiler.EndSample();
 		}
 	}
 }

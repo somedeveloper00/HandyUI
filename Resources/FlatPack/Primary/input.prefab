@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  styleName: outline
+  styleName: handle
   applySprite: 1
   applyColor: 1
   applyHeight: 1

@@ -389,7 +389,7 @@ MonoBehaviour:
     useTargetTransform: 0
     from: 1
     ease: 8
-    duration: 1
+    duration: 0.5
     delay: 0
     pingPong: 0
     loops: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     fromObject: {fileID: 4307101232294155984}
-    target: {x: 1, y: 0.8, z: 1}
+    target: {x: 1, y: 0.9, z: 1}
   playOnStart: 0
 --- !u!114 &8194271051125315231
 MonoBehaviour:
@@ -497,7 +497,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     fromObject: {fileID: 4307101232294155984}
-    target: {x: 1, y: 0.8, z: 1}
+    target: {x: 1, y: 0.9, z: 1}
   playOnStart: 0
 --- !u!114 &8505383000528039273
 MonoBehaviour:
@@ -524,7 +524,7 @@ MonoBehaviour:
     useTargetTransform: 0
     from: 0
     ease: 8
-    duration: 1
+    duration: 0.25
     delay: 0
     pingPong: 0
     loops: 0

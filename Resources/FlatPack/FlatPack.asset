@@ -237,3 +237,35 @@ MonoBehaviour:
     _outDuration:
       enabled: 0
       value: 0
+  - parentName: normal
+    name: handle
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.25, g: 0.597208, b: 1, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 1
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0

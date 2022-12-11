@@ -1,6 +1,7 @@
 ﻿using System;
 using HandyUI.ThemeSystem;
 using UnityEditor;
+using UnityEngine.Profiling;
 
 namespace HandyUI.Editor
 {
@@ -13,10 +14,12 @@ namespace HandyUI.Editor
 		}
 
 		public override void OnInspectorGUI() {
+			Profiler.BeginSample( "Style Pack Editor" );
 			serializedObject.Update();
 			var stylesProp = serializedObject.FindProperty( nameof(instance.styles) );
 			EditorGUILayout.PropertyField( stylesProp );
 			serializedObject.ApplyModifiedProperties();
+			Profiler.EndSample();
 		}
 	}
 }
