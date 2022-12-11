@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using AnimFlex.Tweening;
 using UnityEngine;
 using UnityEngine.Profiling;
@@ -46,8 +47,7 @@ namespace HandyUI.ThemeSystem
 		/// <summary>Updates the theme of all child elements</summary>
 		public void UpdateTheme(bool refreshElements = true) {
 			Profiler.BeginSample( "Theme Update" );
-			if ( refreshElements )
-				_elements = GetComponentsInChildren<ThemedElement>();
+			if ( refreshElements ) this.refreshElements();
 			foreach (var element in _elements) {
 				UpdateStyle( element );
 			}
@@ -60,6 +60,19 @@ namespace HandyUI.ThemeSystem
 					element.UpdateTheme( stylePack.styles[i] );
 					return;
 				}
+			}
+		}
+
+		private void refreshElements() {
+			var results = new List<ThemedElement>(100);
+			add_children( transform );
+			_elements = results.ToArray();
+
+			void add_children(Transform trans) {
+				if ( trans != transform && trans.TryGetComponent<Theme>( out _ ) ) return;
+				if ( trans.TryGetComponent<ThemedElement>( out var elem ) ) results.Add( elem );
+				foreach (Transform child in trans.transform) 
+					add_children( child );
 			}
 		}
 	}
