@@ -698,7 +698,7 @@ MonoBehaviour:
   styleName: normal
   applySprite: 0
   applyColor: 0
-  applyHeight: 0
+  applyHeight: 1
   applyFont: 0
   applyFontSize: 0
   applyFontStyle: 0
