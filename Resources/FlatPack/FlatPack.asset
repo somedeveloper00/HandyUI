@@ -29,7 +29,7 @@ MonoBehaviour:
       value: {fileID: 0}
     _fontSize:
       enabled: 1
-      value: 30
+      value: 50
     _fontStyle:
       enabled: 0
       value: 0
@@ -318,6 +318,38 @@ MonoBehaviour:
     _fontSize:
       enabled: 1
       value: 60
+    _fontStyle:
+      enabled: 1
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: small
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 0
+      value: {r: 0.25, g: 0.597208, b: 1, a: 1}
+    _height:
+      enabled: 0
+      value: 100
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 1
+      value: 40
     _fontStyle:
       enabled: 1
       value: 0

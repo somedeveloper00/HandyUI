@@ -26,19 +26,10 @@ namespace HandyUI.ThemeSystem
 
 		public void DestroyWithAnim() => DestroyWithAnim( null ); 
 		public void DestroyWithAnim(Action onDestroy) {
-			float maxDuration = 0;
-			Tweener lastTweener = null;
-			foreach (var element in _elements) {
-				element.PlayOutAnim(out Tweener tweener, out float d);
-				if ( d > maxDuration ) {
-					maxDuration = d;
-					lastTweener = tweener;
-				}
-			}
-
-			_onDestroy = onDestroy;
-			lastTweener.onComplete += () => Destroy( gameObject );
+			ThemeUtility.DestroyThemedElementsWithAnim( gameObject, onDestroy);
 		}
+
+
 
 		private void OnDestroy() => _onDestroy?.Invoke();
 

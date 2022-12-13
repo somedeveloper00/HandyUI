@@ -29,6 +29,10 @@ namespace HandyUI.ThemeSystem
 		[SerializeField] internal TweenerComponent[] _tweenersIn;
 		[SerializeField] internal TweenerComponent[] _tweenersOut;
 
+		private void Start() {
+			PlayInAnim();
+		}
+
 		public void PlayInAnim() {
 			foreach (var tweener in _tweenersIn) tweener.PlayOrRestart();
 		}

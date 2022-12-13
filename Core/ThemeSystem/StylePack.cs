@@ -12,6 +12,9 @@ namespace HandyUI.ThemeSystem
 			styles ??= Array.Empty<Style>();
 			foreach (var style in styles) style.name = style.name.ToLower();
 			Style.ResolveStyles(styles);
+			foreach (var theme in FindObjectsOfType<Theme>()) {
+				theme.UpdateTheme();
+			}
 		}
 
 	}

@@ -29,7 +29,7 @@ MonoBehaviour:
       value: {fileID: 11400000, guid: 34e1ca74f57c83240800f0076b89b5b3, type: 2}
     _fontSize:
       enabled: 1
-      value: 30
+      value: 50
     _fontStyle:
       enabled: 0
       value: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
       value: {r: 0.25, g: 0.597208, b: 1, a: 1}
     _height:
       enabled: 1
-      value: 100
+      value: 120
     _font:
       enabled: 0
       value: {fileID: 0}
