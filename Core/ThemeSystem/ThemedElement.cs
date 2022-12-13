@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using AnimFlex;
 using AnimFlex.Tweening;
 using TMPro;
 using UnityEngine;
@@ -9,12 +11,14 @@ namespace HandyUI.ThemeSystem
 {
 	/// <summary>Marks the gameObject as a specific element for theme system</summary>
 	[DisallowMultipleComponent]
+	[AddComponentMenu( "Handy UI/Themed Element" )]
 	internal sealed class ThemedElement : MonoBehaviour
 	{
 		public string styleName;
 		[SerializeField] internal bool applySprite = true;
 		[SerializeField] internal bool applyColor = true;
 		[SerializeField] internal bool applyHeight = true;
+		[SerializeField] internal bool applyWidth = false;
 		[SerializeField] internal bool applyFont = true;
 		[SerializeField] internal bool applyFontSize = true;
 		[SerializeField] internal bool applyFontStyle = true;
@@ -29,22 +33,52 @@ namespace HandyUI.ThemeSystem
 		[SerializeField] internal TweenerComponent[] _tweenersIn;
 		[SerializeField] internal TweenerComponent[] _tweenersOut;
 
-		private void Start() {
-			PlayInAnim();
+		private Tweener[] _tweeners;
+
+		private void Awake() {
+			_tweeners = new Tweener[_tweenersIn.Length + _tweenersOut.Length];
 		}
 
-		public void PlayInAnim() {
-			foreach (var tweener in _tweenersIn) tweener.PlayOrRestart();
-		}
-		public void PlayOutAnim(out Tweener lastTweener, out float duration) {
-			duration = 0;
+		public void PlayInAnim(out Tweener lastTweener, out float lastDuration) {
+			// kill all tweeners
+			for ( var i = 0; i < _tweeners.Length; i++ ) {
+				if ( _tweeners[i] != null ) {
+					_tweeners[i].Kill( true, false );
+				}
+
+				_tweeners[i] = null;
+			}
+
+			lastDuration = 0;
 			lastTweener = null;
-			foreach (var tweener in _tweenersOut) {
-				var t = tweener.PlayOrRestart();
-				if ( tweener.duration > duration ) {
-					duration = tweener.duration;
+			for ( var i = 0; i < _tweenersIn.Length; i++ ) {
+				var t = _tweenersIn[i].PlayOrRestart();
+				if ( _tweenersIn[i].duration > lastDuration ) {
+					lastDuration = _tweenersIn[i].duration;
 					lastTweener = t;
 				}
+
+				_tweeners[i] = t;
+			}
+		}
+
+		public void PlayOutAnim(out Tweener lastTweener, out float lastDuration) {
+			// kill all tweeners
+			for ( var i = 0; i < _tweeners.Length; i++ ) {
+				if ( _tweeners[i] != null ) _tweeners[i].Kill( true, false );
+				_tweeners[i] = null;
+			}
+
+			lastDuration = 0;
+			lastTweener = null;
+			for ( var i = 0; i < _tweenersOut.Length; i++ ) {
+				var t = _tweenersOut[i].PlayOrRestart();
+				if ( _tweenersOut[i].duration > lastDuration ) {
+					lastDuration = _tweenersOut[i].duration;
+					lastTweener = t;
+				}
+
+				_tweeners[i] = t;
 			}
 		}
 
@@ -62,24 +96,27 @@ namespace HandyUI.ThemeSystem
 		internal void UpdateTheme(Style style) {
 			if ( _tweenersIn != null ) {
 				if ( applyInEase && style.TryGetInEase( out var ease ) )
-					foreach (var tweener in _tweenersIn) tweener.ease = ease;
+					foreach ( var tweener in _tweenersIn )
+						tweener.ease = ease;
 				if ( applyInEase && style.TryGetInDuration( out var duration ) )
-					foreach (var tweener in _tweenersIn) { // error without the extra null-check :(
-						if (tweener != null) tweener.duration = duration;
+					foreach ( var tweener in _tweenersIn ) { // error without the extra null-check :(
+						if ( tweener != null ) tweener.duration = duration;
 					}
 			}
 
 			if ( _tweenersOut != null ) {
-				if ( applyOutEase && style.TryGetOutEase( out var ease ) ) 
-					foreach (var tweener in _tweenersOut) tweener.ease = ease;
+				if ( applyOutEase && style.TryGetOutEase( out var ease ) )
+					foreach ( var tweener in _tweenersOut )
+						tweener.ease = ease;
 				if ( applyOutEase && style.TryGetOutDuration( out var duration ) )
-					foreach (var tweener in _tweenersOut) {
-						if (tweener != null) tweener.duration = duration;
+					foreach ( var tweener in _tweenersOut ) {
+						if ( tweener != null ) tweener.duration = duration;
 					}
 			}
 
 			if ( _layoutElement != null ) {
 				if ( applyHeight && style.TryGetHeight( out var height ) ) _layoutElement.preferredHeight = height;
+				if ( applyWidth && style.TryGetWidth( out var width ) ) _layoutElement.preferredWidth = width;
 			}
 
 			if ( _image != null ) {

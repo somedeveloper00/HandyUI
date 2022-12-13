@@ -1,0 +1,365 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f8a5d63362e452d82dec55f90e79cf7, type: 3}
+  m_Name: FlatPack-dark
+  m_EditorClassIdentifier: 
+  styles:
+  - parentName: 
+    name: main
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 0
+      value: {r: 1, g: 1, b: 1, a: 1}
+    _height:
+      enabled: 1
+      value: 50
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 1
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 1
+      value: 27
+    _fontStyle:
+      enabled: 0
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 1
+      value: 0.2
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 1
+      value: 0.15
+  - parentName: main
+    name: normal
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.73, g: 0.73, b: 0.73, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 1
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: main
+    name: background
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.08, g: 0.08, b: 0.08, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 0
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: background-2
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.156, g: 0.156, b: 0.156, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 0
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: background-3
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.98826456, g: 1, b: 0.8537736, a: 1}
+    _height:
+      enabled: 0
+      value: 100
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 60
+    _fontStyle:
+      enabled: 0
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: outline
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.55, g: 0.55, b: 0.55, a: 0.5019608}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 0
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: field
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 0
+      value: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 0
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: placeholder
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.77, g: 0.77, b: 0.77, a: 0.5019608}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 1
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: handle
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 1
+      value: {r: 0.25, g: 0.597208, b: 1, a: 1}
+    _height:
+      enabled: 0
+      value: 0
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 0
+      value: 20
+    _fontStyle:
+      enabled: 1
+      value: 2
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0
+  - parentName: normal
+    name: header
+    _sprite:
+      enabled: 0
+      value: {fileID: 0}
+    _color:
+      enabled: 0
+      value: {r: 0.25, g: 0.597208, b: 1, a: 1}
+    _height:
+      enabled: 1
+      value: 100
+    _width:
+      enabled: 0
+      value: 0
+    _font:
+      enabled: 0
+      value: {fileID: 0}
+    _fontSize:
+      enabled: 1
+      value: 60
+    _fontStyle:
+      enabled: 1
+      value: 0
+    _inEase:
+      enabled: 0
+      value: 0
+    _inDuration:
+      enabled: 0
+      value: 0
+    _outEase:
+      enabled: 0
+      value: 0
+    _outDuration:
+      enabled: 0
+      value: 0

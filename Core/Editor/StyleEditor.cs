@@ -93,6 +93,7 @@ namespace HandyUI.Editor
 			var fontSizeNameProp = property.FindPropertyRelative( "_fontSize" );
 			var spriteProp = property.FindPropertyRelative( "_sprite" );
 			var heightNameProp = property.FindPropertyRelative( "_height" );
+			var widthNameProp = property.FindPropertyRelative( "_width" );
 			var colorProp = property.FindPropertyRelative( "_color" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
 			var fontProp = property.FindPropertyRelative( "_font" );
@@ -115,6 +116,7 @@ namespace HandyUI.Editor
 				h += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( fontProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( heightNameProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( widthNameProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;

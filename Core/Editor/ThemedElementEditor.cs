@@ -9,6 +9,7 @@ using UnityEngine;
 namespace HandyUI.Editor
 {
 	[CustomEditor( typeof(ThemedElement) )]
+	[CanEditMultipleObjects]
 	public class ThemedElementEditor : UnityEditor.Editor
 	{
 		private ThemedElement instance;
@@ -25,6 +26,7 @@ namespace HandyUI.Editor
 			var applySpriteProp = serializedObject.FindProperty( nameof(instance.applySprite) );
 			var applyColorProp = serializedObject.FindProperty( nameof(instance.applyColor) );
 			var applyHeightProp = serializedObject.FindProperty( nameof(instance.applyHeight) );
+			var applyWidthProp = serializedObject.FindProperty( nameof(instance.applyWidth) );
 			var applyFontSizeProp = serializedObject.FindProperty( nameof(instance.applyFontSize) );
 			var applyFontStyleProp = serializedObject.FindProperty( nameof(instance.applyFontStyle) );
 			var applyFontProp = serializedObject.FindProperty( nameof(instance.applyFont) );
@@ -78,37 +80,33 @@ namespace HandyUI.Editor
 				EditorGUILayout.PropertyField( applyColorProp );
 				EditorGUILayout.PropertyField( applyFontSizeProp );
 				EditorGUILayout.PropertyField( applyHeightProp );
+				EditorGUILayout.PropertyField( applyWidthProp );
 				EditorGUILayout.PropertyField( applyFontStyleProp );
 				EditorGUILayout.PropertyField( applyFontProp );
 				EditorGUILayout.PropertyField( applyInEaseProp );
-				EditorGUILayout.PropertyField( applyInDurationProp );
-				if ( applyInEaseProp.boolValue || applyInDurationProp.boolValue ) {
-					EditorGUI.indentLevel++;
-					EditorGUILayout.PropertyField( TweenersInProp );
-					EditorGUI.indentLevel--;
-				}
 				EditorGUILayout.PropertyField( applyOutEaseProp );
 				EditorGUILayout.PropertyField( applyOutDurationProp );
-				if ( applyOutEaseProp.boolValue || applyOutDurationProp.boolValue ) {
-					EditorGUI.indentLevel++;
-					EditorGUILayout.PropertyField( TweenersOutProp );
-					EditorGUI.indentLevel--;
-				}
+				EditorGUILayout.PropertyField( applyInDurationProp );
+				GUILayout.Space( 5 );
+				EditorGUILayout.PropertyField( TweenersInProp );
+				EditorGUILayout.PropertyField( TweenersOutProp );
 				
 				
 				using (new GUILayout.HorizontalScope()) {
 					if ( GUILayout.Button( "select all", GUILayout.Width( 100 ) ) ) {
 						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =
-							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = applyInEaseProp.boolValue =
-								applyOutEaseProp.boolValue = applyInDurationProp.boolValue =
-									applyOutDurationProp.boolValue = applyFontProp.boolValue = true;
+							applyWidthProp.boolValue = applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = 
+								applyInEaseProp.boolValue = applyOutEaseProp.boolValue = 
+									applyInDurationProp.boolValue = applyOutDurationProp.boolValue = 
+										applyFontProp.boolValue = true;
 					}
 
 					if ( GUILayout.Button( "deselect all", GUILayout.Width( 100 ) ) ) {
 						applySpriteProp.boolValue = applyColorProp.boolValue = applyHeightProp.boolValue =
-							applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = applyInEaseProp.boolValue =
-								applyOutEaseProp.boolValue = applyInDurationProp.boolValue =
-									applyOutDurationProp.boolValue = applyFontProp.boolValue = false;
+							applyWidthProp.boolValue = applyFontSizeProp.boolValue = applyFontStyleProp.boolValue = 
+								applyInEaseProp.boolValue = applyOutEaseProp.boolValue = 
+									applyInDurationProp.boolValue = applyOutDurationProp.boolValue = 
+										applyFontProp.boolValue = false;
 					}
 				}
 			}

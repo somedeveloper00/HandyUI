@@ -9,29 +9,13 @@ namespace HandyUI.ThemeSystem
 {
 	/// <summary>Marks every <see cref="ThemedElement"/> child with it's own theme</summary>
 	[ExecuteAlways]
+	[AddComponentMenu("Handy UI/Theme")]
 	public sealed class Theme : MonoBehaviour
 	{
 		public StylePack stylePack;
 		private ThemedElement[] _elements = Array.Empty<ThemedElement>();
 
-		private Action _onDestroy;
-
-		private void OnEnable() {
-			UpdateTheme();
-#if UNITY_EDITOR
-			if (!Application.isPlaying) return;
-#endif
-			foreach (var element in _elements) element.PlayInAnim();
-		}
-
-		public void DestroyWithAnim() => DestroyWithAnim( null ); 
-		public void DestroyWithAnim(Action onDestroy) {
-			ThemeUtility.DestroyThemedElementsWithAnim( gameObject, onDestroy);
-		}
-
-
-
-		private void OnDestroy() => _onDestroy?.Invoke();
+		private void OnEnable() => UpdateTheme();
 
 		private void OnValidate() => UpdateTheme();
 

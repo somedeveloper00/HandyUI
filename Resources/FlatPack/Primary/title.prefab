@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3232999187811063290}
   - component: {fileID: 3232999187811063288}
   - component: {fileID: 3232999187811063289}
-  - component: {fileID: 2939909017932933654}
   - component: {fileID: 7110769343968462218}
   - component: {fileID: 3836354082250452094}
   - component: {fileID: 7140435192821627245}
+  - component: {fileID: 2939909017932933654}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -32,6 +32,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -138,33 +139,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2939909017932933654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3232999187811063291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  styleName: normal
-  applySprite: 1
-  applyColor: 1
-  applyHeight: 1
-  applyFont: 1
-  applyFontSize: 1
-  applyFontStyle: 1
-  applyInEase: 1
-  applyOutEase: 1
-  applyInDuration: 1
-  applyOutDuration: 1
-  _tweenersIn:
-  - {fileID: 3836354082250452094}
-  _tweenersOut:
-  - {fileID: 7140435192821627245}
 --- !u!114 &7110769343968462218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +189,7 @@ MonoBehaviour:
     pingPong: 0
     loops: 0
     loopDelay: 0
+    resetOnComplete: 0
     onStart:
       m_PersistentCalls:
         m_Calls: []
@@ -260,6 +235,7 @@ MonoBehaviour:
     pingPong: 0
     loops: 0
     loopDelay: 0
+    resetOnComplete: 1
     onStart:
       m_PersistentCalls:
         m_Calls: []
@@ -275,3 +251,31 @@ MonoBehaviour:
     fromObject: {fileID: 3232999187811063289}
     target: 0
   playOnStart: 0
+--- !u!114 &2939909017932933654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232999187811063291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ae9a621914f28b023765133ffcadd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  styleName: normal
+  applySprite: 1
+  applyColor: 1
+  applyHeight: 1
+  applyWidth: 0
+  applyFont: 1
+  applyFontSize: 1
+  applyFontStyle: 1
+  applyInEase: 1
+  applyOutEase: 1
+  applyInDuration: 1
+  applyOutDuration: 1
+  _tweenersIn:
+  - {fileID: 3836354082250452094}
+  _tweenersOut:
+  - {fileID: 7140435192821627245}
