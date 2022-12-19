@@ -25,6 +25,7 @@ namespace HandyUI.ThemeSystem
 			Tweener lastTweener = null;
 			foreach ( var element in root.GetComponentsInChildren<ThemedElement>() ) {
 				element.PlayOutAnim( out var tweener, out var d );
+				if ( tweener == null || d == 0 ) continue;
 				if ( d > maxDuration ) {
 					maxDuration = d;
 					lastTweener = tweener;
@@ -49,6 +50,7 @@ namespace HandyUI.ThemeSystem
 			Tweener lastTweener = null;
 			foreach ( var element in root.GetComponentsInChildren<ThemedElement>() ) {
 				element.PlayInAnim( out var tweener, out var d );
+				if ( tweener == null || d == 0 ) continue;
 				if ( d > maxDuration ) {
 					maxDuration = d;
 					lastTweener = tweener;

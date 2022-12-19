@@ -36,18 +36,24 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 0
+    _inAnim:
+      enabled: 1
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
       enabled: 1
-      value: 0.2
+      value: 0.5
+    _outAnim:
+      enabled: 1
+      value: 0
     _outEase:
       enabled: 0
       value: 0
     _outDuration:
       enabled: 1
-      value: 0.15
+      value: 0.25
   - parentName: main
     name: normal
     _sprite:
@@ -71,10 +77,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 1
       value: 0
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -106,10 +118,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 0
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -141,10 +159,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 2
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -176,10 +200,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 0
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -211,10 +241,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 2
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -246,10 +282,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 0
       value: 2
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -281,10 +323,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 1
       value: 2
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -316,10 +364,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 1
       value: 2
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:
@@ -351,10 +405,16 @@ MonoBehaviour:
     _fontStyle:
       enabled: 1
       value: 0
+    _inAnim:
+      enabled: 0
+      value: 0
     _inEase:
       enabled: 0
       value: 0
     _inDuration:
+      enabled: 0
+      value: 0
+    _outAnim:
       enabled: 0
       value: 0
     _outEase:

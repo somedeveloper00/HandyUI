@@ -30,9 +30,13 @@ namespace HandyUI.Editor
 			var applyFontSizeProp = serializedObject.FindProperty( nameof(instance.applyFontSize) );
 			var applyFontStyleProp = serializedObject.FindProperty( nameof(instance.applyFontStyle) );
 			var applyFontProp = serializedObject.FindProperty( nameof(instance.applyFont) );
+			var applyPlayInAnimProp = serializedObject.FindProperty( nameof(instance.applyPlayInAnim) );
+			var playInAnimProp = serializedObject.FindProperty( nameof(instance.playInAnim) );
 			var applyInEaseProp = serializedObject.FindProperty( nameof(instance.applyInEase) );
-			var applyOutEaseProp = serializedObject.FindProperty( nameof(instance.applyOutEase) );
 			var applyInDurationProp = serializedObject.FindProperty( nameof(instance.applyInDuration) );
+			var applyPlayOutAnimProp = serializedObject.FindProperty( nameof(instance.applyPlayOutAnim) );
+			var playOutAnimProp = serializedObject.FindProperty( nameof(instance.playOutAnim) );
+			var applyOutEaseProp = serializedObject.FindProperty( nameof(instance.applyOutEase) );
 			var applyOutDurationProp = serializedObject.FindProperty( nameof(instance.applyOutDuration) );
 			
 			var TweenersInProp = serializedObject.FindProperty( nameof(instance._tweenersIn) );
@@ -83,13 +87,25 @@ namespace HandyUI.Editor
 				EditorGUILayout.PropertyField( applyWidthProp );
 				EditorGUILayout.PropertyField( applyFontStyleProp );
 				EditorGUILayout.PropertyField( applyFontProp );
-				EditorGUILayout.PropertyField( applyInEaseProp );
-				EditorGUILayout.PropertyField( applyOutEaseProp );
-				EditorGUILayout.PropertyField( applyOutDurationProp );
-				EditorGUILayout.PropertyField( applyInDurationProp );
+				EditorGUILayout.PropertyField( applyPlayInAnimProp );
+				EditorGUILayout.PropertyField( playInAnimProp );
+				if ( playInAnimProp.boolValue ) {
+					using (new EditorGUI.IndentLevelScope()) {
+						EditorGUILayout.PropertyField( applyInEaseProp );
+						EditorGUILayout.PropertyField( applyInDurationProp );
+						EditorGUILayout.PropertyField( TweenersInProp );
+					}
+				}
+				EditorGUILayout.PropertyField( applyPlayOutAnimProp );
+				EditorGUILayout.PropertyField( playOutAnimProp );
+				if ( playOutAnimProp.boolValue ) {
+					using (new EditorGUI.IndentLevelScope()) {
+						EditorGUILayout.PropertyField( applyOutEaseProp );
+						EditorGUILayout.PropertyField( applyOutDurationProp );
+						EditorGUILayout.PropertyField( TweenersOutProp );
+					}
+				}
 				GUILayout.Space( 5 );
-				EditorGUILayout.PropertyField( TweenersInProp );
-				EditorGUILayout.PropertyField( TweenersOutProp );
 				
 				
 				using (new GUILayout.HorizontalScope()) {

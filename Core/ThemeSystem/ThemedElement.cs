@@ -22,10 +22,17 @@ namespace HandyUI.ThemeSystem
 		[SerializeField] internal bool applyFont = true;
 		[SerializeField] internal bool applyFontSize = true;
 		[SerializeField] internal bool applyFontStyle = true;
+		
+		[SerializeField] internal bool applyPlayInAnim = true;
 		[SerializeField] internal bool applyInEase = true;
-		[SerializeField] internal bool applyOutEase = true;
 		[SerializeField] internal bool applyInDuration = true;
+		
+		[SerializeField] internal bool applyPlayOutAnim = true;
+		[SerializeField] internal bool applyOutEase = true;
 		[SerializeField] internal bool applyOutDuration = true;
+
+		[SerializeField] internal bool playInAnim = true;
+		[SerializeField] internal bool playOutAnim = true;
 
 		private Image _image;
 		private TMP_Text _text;
@@ -40,6 +47,12 @@ namespace HandyUI.ThemeSystem
 		}
 
 		public void PlayInAnim(out Tweener lastTweener, out float lastDuration) {
+			if ( !playInAnim ) {
+				lastTweener = null;
+				lastDuration = 0;
+				return;
+			}
+			
 			// kill all tweeners
 			for ( var i = 0; i < _tweeners.Length; i++ ) {
 				if ( _tweeners[i] != null ) {
@@ -63,6 +76,12 @@ namespace HandyUI.ThemeSystem
 		}
 
 		public void PlayOutAnim(out Tweener lastTweener, out float lastDuration) {
+			if ( !playInAnim ) {
+				lastTweener = null;
+				lastDuration = 0;
+				return;
+			}
+
 			// kill all tweeners
 			for ( var i = 0; i < _tweeners.Length; i++ ) {
 				if ( _tweeners[i] != null ) _tweeners[i].Kill( true, false );
@@ -94,6 +113,19 @@ namespace HandyUI.ThemeSystem
 		}
 
 		internal void UpdateTheme(Style style) {
+
+			if ( _tweenersIn?.Length > 0 ) {
+				if ( applyPlayInAnim && style.TryGetInAnim( out var value ) ) {
+					playInAnim = value;
+				}
+			}
+			
+			if ( _tweenersOut?.Length > 0 ) {
+				if ( applyPlayOutAnim && style.TryGetOutAnim( out var value ) ) {
+					playOutAnim = value;
+				}
+			}
+			
 			if ( _tweenersIn != null ) {
 				if ( applyInEase && style.TryGetInEase( out var ease ) )
 					foreach ( var tweener in _tweenersIn )

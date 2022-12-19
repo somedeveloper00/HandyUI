@@ -19,8 +19,10 @@ namespace HandyUI.ThemeSystem
 		[SerializeField] private OverridableOption<TMP_FontAsset> _font;
 		[SerializeField] private OverridableOption<float> _fontSize;
 		[SerializeField] private OverridableOption<FontStyles> _fontStyle;
+		[SerializeField] private OverridableOption<bool> _inAnim;
 		[SerializeField] private OverridableOption<Ease> _inEase;
 		[SerializeField] private OverridableOption<float> _inDuration;
+		[SerializeField] private OverridableOption<bool> _outAnim;
 		[SerializeField] private OverridableOption<Ease> _outEase;
 		[SerializeField] private OverridableOption<float> _outDuration;
 		
@@ -62,6 +64,30 @@ namespace HandyUI.ThemeSystem
 					return parent.TryGetOutEase( out ease );
 			}
 			ease = Ease.Linear;
+			return false;
+		}
+		public bool TryGetInAnim( out bool value ) {
+			if ( valid ) {
+				if ( _inAnim.enabled ) {
+					value = _inAnim.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetInAnim( out value );
+			}
+			value = false;
+			return false;
+		}
+		public bool TryGetOutAnim( out bool value ) {
+			if ( valid ) {
+				if ( _outAnim.enabled ) {
+					value = _outAnim.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetOutAnim( out value );
+			}
+			value = false;
 			return false;
 		}
 		public bool TryGetInDuration( out float duration ) {

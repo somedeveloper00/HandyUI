@@ -25,6 +25,8 @@ namespace HandyUI.Editor
 			var outEaseProp = property.FindPropertyRelative( "_outEase" );
 			var inDurationProp = property.FindPropertyRelative( "_inDuration" );
 			var outDurationProp = property.FindPropertyRelative( "_outDuration" );
+			var inAnimProp = property.FindPropertyRelative( "_inAnim" );
+			var outAnimProp = property.FindPropertyRelative( "_outAnim" );
 
 
 			var styles = new List<string>();
@@ -74,14 +76,23 @@ namespace HandyUI.Editor
 				position.y += EditorGUI.GetPropertyHeight( fontSizeProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, fontStyleProp );
 				position.y += EditorGUI.GetPropertyHeight( fontStyleProp ) + AFStyles.VerticalSpace;
-				EditorGUI.PropertyField( position, inEaseProp );
-				position.y += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
-				EditorGUI.PropertyField( position, outEaseProp );
-				position.y += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
-				EditorGUI.PropertyField( position, inDurationProp );
-				position.y += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;
-				EditorGUI.PropertyField( position, outDurationProp );
-				position.y += EditorGUI.GetPropertyHeight( outDurationProp ) + AFStyles.VerticalSpace;
+				
+				EditorGUI.PropertyField( position, inAnimProp );
+				position.y += EditorGUI.GetPropertyHeight( inAnimProp ) + AFStyles.VerticalSpace;
+				if ( inAnimProp.FindPropertyRelative("value").boolValue ) {
+					EditorGUI.PropertyField( position, inEaseProp );
+					position.y += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
+					EditorGUI.PropertyField( position, inDurationProp );
+					position.y += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;
+				}
+				EditorGUI.PropertyField( position, outAnimProp );
+				position.y += EditorGUI.GetPropertyHeight( outAnimProp ) + AFStyles.VerticalSpace;
+				if ( outAnimProp.FindPropertyRelative("value").boolValue ) {
+					EditorGUI.PropertyField( position, outEaseProp );
+					position.y += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
+					EditorGUI.PropertyField( position, outDurationProp );
+					position.y += EditorGUI.GetPropertyHeight( outDurationProp ) + AFStyles.VerticalSpace;
+				}
 
 				EditorGUI.PropertyField( position, fontProp );
 			}
@@ -101,6 +112,8 @@ namespace HandyUI.Editor
 			var outEaseProp = property.FindPropertyRelative( "_outEase" );
 			var inDurationProp = property.FindPropertyRelative( "_inDuration" );
 			var outDurationProp = property.FindPropertyRelative( "_outDuration" );
+			var inAnimProp = property.FindPropertyRelative( "_inAnim" );
+			var outAnimProp = property.FindPropertyRelative( "_outAnim" );
 			
 			var target = property.GetValue() as Style;
 			var h = 0f;
@@ -117,10 +130,16 @@ namespace HandyUI.Editor
 				h += EditorGUI.GetPropertyHeight( fontProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( heightNameProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( widthNameProp ) + AFStyles.VerticalSpace;
-				h += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
-				h += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
-				h += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;
-				h += EditorGUI.GetPropertyHeight( outDurationProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( inAnimProp ) + AFStyles.VerticalSpace;
+				if ( inAnimProp.FindPropertyRelative("value").boolValue ) {
+					h += EditorGUI.GetPropertyHeight( inEaseProp ) + AFStyles.VerticalSpace;
+					h += EditorGUI.GetPropertyHeight( inDurationProp ) + AFStyles.VerticalSpace;
+				}
+				h += EditorGUI.GetPropertyHeight( outAnimProp ) + AFStyles.VerticalSpace;
+				if ( outAnimProp.FindPropertyRelative("value").boolValue ) {
+					h += EditorGUI.GetPropertyHeight( outEaseProp ) + AFStyles.VerticalSpace;
+					h += EditorGUI.GetPropertyHeight( outDurationProp ) + AFStyles.VerticalSpace;
+				}
 			}
 			return h;
 		}
