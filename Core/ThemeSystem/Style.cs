@@ -14,6 +14,7 @@ namespace HandyUI.ThemeSystem
 		
 		[SerializeField] private OverridableOption<Sprite> _sprite;
 		[SerializeField] private OverridableOption<Color> _color;
+		[SerializeField] private OverridableOption<Color> _outlineColor;
 		[SerializeField] private OverridableOption<float> _height;
 		[SerializeField] private OverridableOption<float> _width;
 		[SerializeField] private OverridableOption<TMP_FontAsset> _font;
@@ -175,6 +176,18 @@ namespace HandyUI.ThemeSystem
 				}
 				if ( parent != null )
 					return parent.TryGetColor( out color );
+			}
+			color = Color.white;
+			return false;
+		}
+		public bool TryGetOutlineColor( out Color color ) {
+			if ( valid ) {
+				if ( _outlineColor.enabled ) {
+					color = _outlineColor.value;
+					return true;
+				}
+				if ( parent != null )
+					return parent.TryGetOutlineColor( out color );
 			}
 			color = Color.white;
 			return false;

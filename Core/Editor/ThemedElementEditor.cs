@@ -25,6 +25,7 @@ namespace HandyUI.Editor
 			var styleNameProp = serializedObject.FindProperty( nameof(instance.styleName) );
 			var applySpriteProp = serializedObject.FindProperty( nameof(instance.applySprite) );
 			var applyColorProp = serializedObject.FindProperty( nameof(instance.applyColor) );
+			var applyOutlineColorProp = serializedObject.FindProperty( nameof(instance.applyOutlineColor) );
 			var applyHeightProp = serializedObject.FindProperty( nameof(instance.applyHeight) );
 			var applyWidthProp = serializedObject.FindProperty( nameof(instance.applyWidth) );
 			var applyFontSizeProp = serializedObject.FindProperty( nameof(instance.applyFontSize) );
@@ -82,6 +83,7 @@ namespace HandyUI.Editor
 			void drawOverrideButtons() {
 				EditorGUILayout.PropertyField( applySpriteProp );
 				EditorGUILayout.PropertyField( applyColorProp );
+				EditorGUILayout.PropertyField( applyOutlineColorProp );
 				EditorGUILayout.PropertyField( applyFontSizeProp );
 				EditorGUILayout.PropertyField( applyHeightProp );
 				EditorGUILayout.PropertyField( applyWidthProp );

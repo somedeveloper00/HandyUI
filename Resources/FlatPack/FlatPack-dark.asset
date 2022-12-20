@@ -21,6 +21,9 @@ MonoBehaviour:
     _color:
       enabled: 0
       value: {r: 1, g: 1, b: 1, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 1, g: 1, b: 1, a: 1}
     _height:
       enabled: 1
       value: 50
@@ -62,6 +65,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.73, g: 0.73, b: 0.73, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 0
@@ -103,6 +109,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.08, g: 0.08, b: 0.08, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 0
@@ -144,6 +153,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.156, g: 0.156, b: 0.156, a: 1}
+    _outlineColor:
+      enabled: 1
+      value: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
     _height:
       enabled: 0
       value: 0
@@ -185,6 +197,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.98826456, g: 1, b: 0.8537736, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 100
@@ -226,6 +241,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.55, g: 0.55, b: 0.55, a: 0.5019608}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 0
@@ -267,6 +285,9 @@ MonoBehaviour:
     _color:
       enabled: 0
       value: {r: 1, g: 0.023584902, b: 0.023584902, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 0
@@ -308,6 +329,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.77, g: 0.77, b: 0.77, a: 0.5019608}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 0
@@ -349,6 +373,9 @@ MonoBehaviour:
     _color:
       enabled: 1
       value: {r: 0.25, g: 0.597208, b: 1, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 0
       value: 0
@@ -390,6 +417,9 @@ MonoBehaviour:
     _color:
       enabled: 0
       value: {r: 0.25, g: 0.597208, b: 1, a: 1}
+    _outlineColor:
+      enabled: 0
+      value: {r: 0, g: 0, b: 0, a: 0}
     _height:
       enabled: 1
       value: 100

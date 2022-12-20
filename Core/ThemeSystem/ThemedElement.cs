@@ -17,6 +17,7 @@ namespace HandyUI.ThemeSystem
 		public string styleName;
 		[SerializeField] internal bool applySprite = true;
 		[SerializeField] internal bool applyColor = true;
+		[SerializeField] internal bool applyOutlineColor = true;
 		[SerializeField] internal bool applyHeight = true;
 		[SerializeField] internal bool applyWidth = false;
 		[SerializeField] internal bool applyFont = true;
@@ -36,6 +37,8 @@ namespace HandyUI.ThemeSystem
 
 		private Image _image;
 		private TMP_Text _text;
+		private Shadow _shadow;
+		private Outline _outline;
 		private LayoutElement _layoutElement;
 		[SerializeField] internal TweenerComponent[] _tweenersIn;
 		[SerializeField] internal TweenerComponent[] _tweenersOut;
@@ -44,6 +47,7 @@ namespace HandyUI.ThemeSystem
 
 		private void Awake() {
 			_tweeners = new Tweener[_tweenersIn.Length + _tweenersOut.Length];
+			getComponents();
 		}
 
 		public void PlayInAnim(out Tweener lastTweener, out float lastDuration) {
@@ -101,16 +105,24 @@ namespace HandyUI.ThemeSystem
 			}
 		}
 
+#if UNITY_EDITOR
 		private void OnValidate() {
 			Profiler.BeginSample( "ThemedElement OnValidate" );
-			_image = GetComponent<Image>();
-			_text = GetComponent<TMP_Text>();
+			getComponents();
 			_layoutElement = GetComponent<LayoutElement>();
 			var theme = gameObject.GetComponentInParent<Theme>();
 			if ( theme != null )
 				theme.UpdateTheme();
 			Profiler.EndSample();
 		}
+
+		private void getComponents() {
+			_image = GetComponent<Image>();
+			_text = GetComponent<TMP_Text>();
+			_shadow = GetComponent<Shadow>();
+			_outline = GetComponent<Outline>();
+		}
+#endif
 
 		internal void UpdateTheme(Style style) {
 
@@ -154,6 +166,13 @@ namespace HandyUI.ThemeSystem
 			if ( _image != null ) {
 				if ( applySprite && style.TryGetSprite( out var sprite ) ) _image.sprite = sprite;
 				if ( applyColor && style.TryGetColor( out var color ) ) _image.color = color;
+			}
+
+			if ( _outline != null ) {
+				if ( applyOutlineColor && style.TryGetOutlineColor( out var color ) ) _outline.effectColor = color;
+			}
+			if ( _shadow != null ) {
+				if ( applyOutlineColor && style.TryGetOutlineColor( out var color ) ) _shadow.effectColor = color;
 			}
 
 			if ( _text != null ) {

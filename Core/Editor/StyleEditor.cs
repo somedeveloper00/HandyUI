@@ -19,6 +19,7 @@ namespace HandyUI.Editor
 			var fontSizeProp = property.FindPropertyRelative( "_fontSize" );
 			var spriteProp = property.FindPropertyRelative( "_sprite" );
 			var colorProp = property.FindPropertyRelative( "_color" );
+			var outlineColorProp = property.FindPropertyRelative( "_outlineColor" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
 			var fontProp = property.FindPropertyRelative( "_font" );
 			var inEaseProp = property.FindPropertyRelative( "_inEase" );
@@ -68,6 +69,8 @@ namespace HandyUI.Editor
 				position.y += EditorGUI.GetPropertyHeight( nameProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, colorProp );
 				position.y += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
+				EditorGUI.PropertyField( position, outlineColorProp );
+				position.y += EditorGUI.GetPropertyHeight( outlineColorProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, spriteProp );
 				position.y += EditorGUI.GetPropertyHeight( spriteProp ) + AFStyles.VerticalSpace;
 				EditorGUI.PropertyField( position, heightNameProp );
@@ -106,6 +109,7 @@ namespace HandyUI.Editor
 			var heightNameProp = property.FindPropertyRelative( "_height" );
 			var widthNameProp = property.FindPropertyRelative( "_width" );
 			var colorProp = property.FindPropertyRelative( "_color" );
+			var outlineColorProp = property.FindPropertyRelative( "_outlineColor" );
 			var fontStyleProp = property.FindPropertyRelative( "_fontStyle" );
 			var fontProp = property.FindPropertyRelative( "_font" );
 			var inEaseProp = property.FindPropertyRelative( "_inEase" );
@@ -127,6 +131,7 @@ namespace HandyUI.Editor
 				h += EditorGUI.GetPropertyHeight( fontStyleProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( spriteProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( colorProp ) + AFStyles.VerticalSpace;
+				h += EditorGUI.GetPropertyHeight( outlineColorProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( fontProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( heightNameProp ) + AFStyles.VerticalSpace;
 				h += EditorGUI.GetPropertyHeight( widthNameProp ) + AFStyles.VerticalSpace;
