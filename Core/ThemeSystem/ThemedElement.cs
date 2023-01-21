@@ -105,6 +105,13 @@ namespace HandyUI.ThemeSystem
 			}
 		}
 
+		private void getComponents() {
+			_image = GetComponent<Image>();
+			_text = GetComponent<TMP_Text>();
+			_shadow = GetComponent<Shadow>();
+			_outline = GetComponent<Outline>();
+		}
+
 #if UNITY_EDITOR
 		private void OnValidate() {
 			Profiler.BeginSample( "ThemedElement OnValidate" );
@@ -116,12 +123,6 @@ namespace HandyUI.ThemeSystem
 			Profiler.EndSample();
 		}
 
-		private void getComponents() {
-			_image = GetComponent<Image>();
-			_text = GetComponent<TMP_Text>();
-			_shadow = GetComponent<Shadow>();
-			_outline = GetComponent<Outline>();
-		}
 #endif
 
 		internal void UpdateTheme(Style style) {
